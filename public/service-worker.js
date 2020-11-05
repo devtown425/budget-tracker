@@ -7,7 +7,7 @@ const DATA_CACHE_NAME = "data-cache-v1";
   //(size) => `/assets/images/icons/icon-${size}x${size}.png`
 //);
 
-const staticFilesToPreCache = [
+const FILES_TO_CACHE = [
   "/",
   "/manifest.json",
   "/index.html",
@@ -23,7 +23,7 @@ self.addEventListener("install", function(evt) {
   evt.waitUntil(
     caches.open(CACHE_NAME).then(cache => {
       console.log("Your files were pre-cached successfully!");
-      return cache.addAll(staticFilesToPreCache);
+      return cache.addAll(FILES_TO_CACHE);
     })
   );
 
